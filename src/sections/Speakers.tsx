@@ -30,15 +30,9 @@ export default function Speakers() {
               </h4>
               <p className="text-sm text-secondaryAccent mb-4">{speaker.type}</p>
               
-              <div className="space-y-2 text-sm text-muted font-light mb-6">
+              <div className="space-y-2 text-sm text-muted font-light">
                 <p>Organization: <span className="italic">TBA</span></p>
                 <p>Session: {speaker.session}</p>
-              </div>
-
-              <div className="pt-4 border-t border-light/10">
-                <button className="text-muted hover:text-foreground transition-colors cursor-not-allowed opacity-50" title="LinkedIn Profile TBA">
-                  LinkedIn TBA
-                </button>
               </div>
             </div>
           </div>
