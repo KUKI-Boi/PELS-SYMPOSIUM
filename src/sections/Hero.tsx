@@ -107,8 +107,15 @@ export default function Hero() {
           }}
           onTouchStart={() => setIsTouched(true)}
           onTouchEnd={() => setIsTouched(false)}
+          onTouchCancel={() => setIsTouched(false)}
           onClick={() => setIsTouched(prev => !prev)}
-          className={`flex justify-center items-center relative h-[350px] sm:h-[450px] lg:h-[600px] w-full group cursor-pointer mt-8 lg:mt-0 select-none ${isTouched ? 'is-touched' : ''}`}
+          onContextMenu={(e) => e.preventDefault()}
+          className={`flex justify-center items-center relative h-[350px] sm:h-[450px] lg:h-[600px] w-full group cursor-pointer mt-8 lg:mt-0 select-none touch-manipulation ${isTouched ? 'is-touched' : ''}`}
+          style={{
+            WebkitTouchCallout: 'none',
+            WebkitUserSelect: 'none',
+            userSelect: 'none',
+          }}
         >
           {/* Background Glows for the robot */}
           <div className={`absolute top-1/4 right-1/4 w-64 h-64 bg-accent/20 blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-accent/40 group-hover:blur-[140px] ${isTouched ? 'bg-accent/40 blur-[140px]' : ''}`} />
@@ -122,8 +129,15 @@ export default function Hero() {
           <img 
             src={robotImg} 
             alt="Industrial Robot Arm Model" 
-            className={`w-full h-auto object-contain max-h-[340px] sm:max-h-[440px] lg:max-h-[550px] transition-transform duration-700 ease-out group-hover:scale-105 ${isTouched ? 'scale-105' : ''}`}
-            style={{ filter: 'drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.25)) drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15))' }}
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
+            className={`w-full h-auto object-contain max-h-[340px] sm:max-h-[440px] lg:max-h-[550px] transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none ${isTouched ? 'scale-105' : ''}`}
+            style={{ 
+              filter: 'drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.25)) drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15))',
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none',
+            }}
           />
         </motion.div>
       </div>
