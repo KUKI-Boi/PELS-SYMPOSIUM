@@ -106,15 +106,25 @@ export default function Hero() {
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
           }}
           onTouchStart={() => setIsTouched(true)}
-          onTouchEnd={() => setIsTouched(false)}
+          onTouchEnd={() => {
+            // Smoothly release touch effect after a short delay so the glow lingers nicely
+            setTimeout(() => setIsTouched(false), 300);
+          }}
           onTouchCancel={() => setIsTouched(false)}
           onClick={() => setIsTouched(prev => !prev)}
-          onContextMenu={(e) => e.preventDefault()}
+          onContextMenu={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }}
           className={`flex justify-center items-center relative h-[350px] sm:h-[450px] lg:h-[600px] w-full group cursor-pointer mt-8 lg:mt-0 select-none touch-manipulation ${isTouched ? 'is-touched' : ''}`}
           style={{
             WebkitTouchCallout: 'none',
             WebkitUserSelect: 'none',
             userSelect: 'none',
+            KhtmlUserSelect: 'none',
+            MozUserSelect: 'none',
+            msUserSelect: 'none',
           }}
         >
           {/* Background Glows for the robot */}
@@ -130,13 +140,21 @@ export default function Hero() {
             src={robotImg} 
             alt="Industrial Robot Arm Model" 
             draggable={false}
-            onContextMenu={(e) => e.preventDefault()}
+            onContextMenu={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              return false;
+            }}
             className={`w-full h-auto object-contain max-h-[340px] sm:max-h-[440px] lg:max-h-[550px] transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none ${isTouched ? 'scale-105' : ''}`}
             style={{ 
               filter: 'drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.25)) drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15))',
               WebkitTouchCallout: 'none',
               WebkitUserSelect: 'none',
               userSelect: 'none',
+              KhtmlUserSelect: 'none',
+              MozUserSelect: 'none',
+              msUserSelect: 'none',
+              pointerEvents: 'none',
             }}
           />
         </motion.div>
