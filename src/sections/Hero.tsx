@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users } from 'lucide-react';
-import { Button } from '../components/Button';
 import { eventData } from '../data/event';
 import InteractiveScribble from '../components/InteractiveScribble';
 import robotImg from '../assets/hero-robot-orange-v2-transparent.png';
