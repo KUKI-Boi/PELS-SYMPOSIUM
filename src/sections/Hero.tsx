@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users } from 'lucide-react';
 import { eventData } from '../data/event';
@@ -5,6 +6,8 @@ import InteractiveScribble from '../components/InteractiveScribble';
 import robotImg from '../assets/hero-robot-orange-v2-transparent.png';
 
 export default function Hero() {
+  const [isTouched, setIsTouched] = useState(false);
+
   return (
     <section className="relative min-h-[100svh] flex flex-col justify-center pt-32 pb-24 overflow-hidden">
       {/* ── Layer 1: Base canvas — grid texture (z-0) ───────────── */}
@@ -102,21 +105,24 @@ export default function Hero() {
             scale: { duration: 1, delay: 0.2 },
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
           }}
-          className="flex justify-center items-center relative h-[350px] sm:h-[450px] lg:h-[600px] w-full group cursor-pointer mt-8 lg:mt-0"
+          onTouchStart={() => setIsTouched(true)}
+          onTouchEnd={() => setIsTouched(false)}
+          onClick={() => setIsTouched(prev => !prev)}
+          className={`flex justify-center items-center relative h-[350px] sm:h-[450px] lg:h-[600px] w-full group cursor-pointer mt-8 lg:mt-0 select-none ${isTouched ? 'is-touched' : ''}`}
         >
           {/* Background Glows for the robot */}
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-accent/20 blur-[120px] rounded-full -z-20 group-hover:bg-accent/40 group-hover:blur-[140px] transition-all duration-700 ease-out" />
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondaryAccent/20 blur-[120px] rounded-full -z-20 group-hover:bg-secondaryAccent/40 group-hover:blur-[140px] transition-all duration-700 ease-out" />
+          <div className={`absolute top-1/4 right-1/4 w-64 h-64 bg-accent/20 blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-accent/40 group-hover:blur-[140px] ${isTouched ? 'bg-accent/40 blur-[140px]' : ''}`} />
+          <div className={`absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondaryAccent/20 blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-secondaryAccent/40 group-hover:blur-[140px] ${isTouched ? 'bg-secondaryAccent/40 blur-[140px]' : ''}`} />
           
           {/* Tech Circles Behind Model */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-white/5 -z-10 group-hover:border-accent/40 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] group-hover:scale-105 transition-all duration-700 ease-out" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full border border-white/5 -z-10 group-hover:border-accent/20 group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] group-hover:scale-105 transition-all duration-700 ease-out delay-75" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5 -z-10 group-hover:border-accent/10 group-hover:shadow-[0_0_70px_rgba(56,189,248,0.1)] group-hover:scale-105 transition-all duration-700 ease-out delay-150" />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[300px] h-[280px] sm:h-[300px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out group-hover:border-accent/40 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] group-hover:scale-105 ${isTouched ? 'border-accent/50 shadow-[0_0_35px_rgba(56,189,248,0.5)] scale-105' : ''}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[450px] h-[400px] sm:h-[450px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-75 group-hover:border-accent/20 group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] group-hover:scale-105 ${isTouched ? 'border-accent/30 shadow-[0_0_55px_rgba(56,189,248,0.3)] scale-105' : ''}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] sm:w-[600px] h-[520px] sm:h-[600px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-150 group-hover:border-accent/10 group-hover:shadow-[0_0_70px_rgba(56,189,248,0.1)] group-hover:scale-105 ${isTouched ? 'border-accent/20 shadow-[0_0_75px_rgba(56,189,248,0.15)] scale-105' : ''}`} />
 
           <img 
             src={robotImg} 
             alt="Industrial Robot Arm Model" 
-            className="w-full h-auto object-contain max-h-[550px] group-hover:scale-105 transition-transform duration-700 ease-out"
+            className={`w-full h-auto object-contain max-h-[340px] sm:max-h-[440px] lg:max-h-[550px] transition-transform duration-700 ease-out group-hover:scale-105 ${isTouched ? 'scale-105' : ''}`}
             style={{ filter: 'drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.25)) drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15))' }}
           />
         </motion.div>

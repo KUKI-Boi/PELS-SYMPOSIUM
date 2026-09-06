@@ -9,6 +9,8 @@ interface BlueprintLoaderProps {
 
 export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoaderProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
   useEffect(() => {
     if (!isVisible) return;
@@ -17,17 +19,21 @@ export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoad
     if (!video) return;
 
     // Fallback: if video doesn't end naturally within 15s, complete anyway
-    const fallback = setTimeout(onComplete, 15000);
+    const fallback = setTimeout(() => {
+      onCompleteRef.current();
+    }, 15000);
 
     const handleEnded = () => {
       clearTimeout(fallback);
       // Small pause at end before fading out
-      setTimeout(onComplete, 200);
+      setTimeout(() => {
+        onCompleteRef.current();
+      }, 200);
     };
 
     const handleError = () => {
       clearTimeout(fallback);
-      onComplete();
+      onCompleteRef.current();
     };
 
     video.addEventListener('ended', handleEnded);
@@ -43,7 +49,7 @@ export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoad
       video.removeEventListener('ended', handleEnded);
       video.removeEventListener('error', handleError);
     };
-  }, [isVisible, onComplete]);
+  }, [isVisible]);
 
   return (
     <AnimatePresence>
@@ -53,6 +59,7 @@ export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoad
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
+          onClick={() => onCompleteRef.current()}
           style={{
             position: 'fixed',
             inset: 0,
@@ -62,6 +69,7 @@ export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoad
             alignItems: 'center',
             justifyContent: 'center',
             overflow: 'hidden',
+            cursor: 'pointer',
           }}
         >
           <video
@@ -69,6 +77,7 @@ export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoad
             src={loaderVideo}
             muted
             playsInline
+            autoPlay
             style={{
               width: '100%',
               height: '100%',

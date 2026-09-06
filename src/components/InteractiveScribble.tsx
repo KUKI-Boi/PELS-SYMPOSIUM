@@ -78,18 +78,16 @@ export default function InteractiveScribble({
         },
       });
 
-      // ── 3. Cursor repulsion physics ───────────────────────
-      // When the cursor comes within 180px of the scribble's centre,
-      // it is pushed away proportionally to proximity.
-      // On cursor exit (distance > threshold), it springs back via
-      // elastic easing — giving it tactile, physical weight.
-      const handleMouseMove = (e: MouseEvent) => {
+      // ── 3. Cursor & Touch repulsion physics ───────────────────────
+      // When cursor or touch comes within 180px of scribble center,
+      // it is pushed away proportionally.
+      const handlePointerCoord = (clientX: number, clientY: number) => {
         const rect = container.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        const deltaX = e.clientX - centerX;
-        const deltaY = e.clientY - centerY;
+        const deltaX = clientX - centerX;
+        const deltaY = clientY - centerY;
         const distance = Math.hypot(deltaX, deltaY);
 
         const maxDistance = 180;
@@ -104,7 +102,7 @@ export default function InteractiveScribble({
             x: pushX,
             y: pushY,
             rotation: rotateInit + tiltDeg,
-            scale: 1.1,
+            scale: 1.15,
             duration: 0.35,
             ease: 'power2.out',
             overwrite: 'auto',
@@ -122,8 +120,38 @@ export default function InteractiveScribble({
         }
       };
 
+      const handleMouseMove = (e: MouseEvent) => {
+        handlePointerCoord(e.clientX, e.clientY);
+      };
+
+      const handleTouchMove = (e: TouchEvent) => {
+        if (e.touches && e.touches.length > 0) {
+          handlePointerCoord(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      };
+
+      const handleTouchEnd = () => {
+        gsap.to(icon, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: 'elastic.out(1, 0.4)',
+          overwrite: 'auto',
+        });
+      };
+
       window.addEventListener('mousemove', handleMouseMove);
-      return () => window.removeEventListener('mousemove', handleMouseMove);
+      window.addEventListener('touchmove', handleTouchMove, { passive: true });
+      window.addEventListener('touchstart', handleTouchMove, { passive: true });
+      window.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchstart', handleTouchMove);
+        window.removeEventListener('touchend', handleTouchEnd);
+      };
     }, containerRef);
 
     return () => ctx.revert();
