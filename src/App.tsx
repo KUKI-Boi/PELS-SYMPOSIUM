@@ -27,7 +27,7 @@ function App() {
 
       {/* Site content — rendered in background, revealed after loader exits */}
       <SmoothScroll>
-        <div className="min-h-screen bg-background text-foreground flex flex-col relative grid-pattern">
+        <div className="min-h-screen w-full bg-background text-foreground flex flex-col relative grid-pattern overflow-x-hidden">
           <Header />
           <main className="flex-1">
             <Hero />

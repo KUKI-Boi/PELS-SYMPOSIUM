@@ -124,33 +124,20 @@ export default function InteractiveScribble({
         handlePointerCoord(e.clientX, e.clientY);
       };
 
-      const handleTouchMove = (e: TouchEvent) => {
-        if (e.touches && e.touches.length > 0) {
-          handlePointerCoord(e.touches[0].clientX, e.touches[0].clientY);
-        }
-      };
+      // Only attach mousemove on pointer devices that support hover (desktops/laptops)
+      // Avoid attaching touchmove/touchstart listeners to window on mobile devices
+      const isTouchDevice =
+        typeof window !== 'undefined' &&
+        ('ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches);
 
-      const handleTouchEnd = () => {
-        gsap.to(icon, {
-          x: 0,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: 'elastic.out(1, 0.4)',
-          overwrite: 'auto',
-        });
-      };
-
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('touchmove', handleTouchMove, { passive: true });
-      window.addEventListener('touchstart', handleTouchMove, { passive: true });
-      window.addEventListener('touchend', handleTouchEnd, { passive: true });
+      if (!isTouchDevice) {
+        window.addEventListener('mousemove', handleMouseMove);
+      }
 
       return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchstart', handleTouchMove);
-        window.removeEventListener('touchend', handleTouchEnd);
+        if (!isTouchDevice) {
+          window.removeEventListener('mousemove', handleMouseMove);
+        }
       };
     }, containerRef);
 
