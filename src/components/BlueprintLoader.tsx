@@ -18,14 +18,13 @@ export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoad
     const video = videoRef.current;
     if (!video) return;
 
-    // Fallback: if video doesn't end naturally within 15s, complete anyway
+    // Safety fallback: if video doesn't play or end within 6s (e.g. Low Power Mode), proceed anyway
     const fallback = setTimeout(() => {
       onCompleteRef.current();
-    }, 15000);
+    }, 6000);
 
     const handleEnded = () => {
       clearTimeout(fallback);
-      // Small pause at end before fading out
       setTimeout(() => {
         onCompleteRef.current();
       }, 200);
@@ -39,10 +38,18 @@ export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoad
     video.addEventListener('ended', handleEnded);
     video.addEventListener('error', handleError);
 
-    // Autoplay
-    video.play().catch(() => {
-      // If autoplay blocked, still complete after fallback timeout
-    });
+    // Explicitly set muted property on the DOM node for WebKit/iOS Safari compliance
+    video.muted = true;
+    video.defaultMuted = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay policy prevented playback or Low Power Mode active.
+        // Fallback timer will smoothly exit after a brief branded moment,
+        // or user can tap anywhere to continue.
+      });
+    }
 
     return () => {
       clearTimeout(fallback);
@@ -76,14 +83,25 @@ export default function BlueprintLoader({ isVisible, onComplete }: BlueprintLoad
             ref={videoRef}
             src={loaderVideo}
             muted
-            playsInline
             autoPlay
+            playsInline
+            {...({ 'webkit-playsinline': 'true' } as React.VideoHTMLAttributes<HTMLVideoElement>)}
+            preload="auto"
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'cover',
+              pointerEvents: 'none',
             }}
           />
+
+          {/* Tap to skip hint */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs font-mono text-foreground/40 uppercase tracking-widest pointer-events-none select-none">
+            Tap to enter
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -67,7 +67,7 @@ export default function Hero() {
             </p>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-display font-black uppercase leading-[1.1] tracking-tight text-gradient-ghost">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase leading-[1.1] tracking-tight text-gradient-ghost break-words">
             Symposium On <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondaryAccent" style={{ textShadow: 'none' }}>
               Industrial Automation
@@ -117,7 +117,7 @@ export default function Hero() {
             e.stopPropagation();
             return false;
           }}
-          className={`flex justify-center items-center relative h-[350px] sm:h-[450px] lg:h-[600px] w-full group cursor-pointer mt-8 lg:mt-0 select-none touch-manipulation ${isTouched ? 'is-touched' : ''}`}
+          className={`flex justify-center items-center relative h-[320px] sm:h-[450px] lg:h-[600px] w-full max-w-full group cursor-pointer mt-8 lg:mt-0 select-none touch-manipulation overflow-hidden lg:overflow-visible ${isTouched ? 'is-touched' : ''}`}
           style={{
             WebkitTouchCallout: 'none',
             WebkitUserSelect: 'none',
@@ -128,13 +128,13 @@ export default function Hero() {
           }}
         >
           {/* Background Glows for the robot */}
-          <div className={`absolute top-1/4 right-1/4 w-64 h-64 bg-accent/20 blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-accent/40 group-hover:blur-[140px] ${isTouched ? 'bg-accent/40 blur-[140px]' : ''}`} />
-          <div className={`absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondaryAccent/20 blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-secondaryAccent/40 group-hover:blur-[140px] ${isTouched ? 'bg-secondaryAccent/40 blur-[140px]' : ''}`} />
+          <div className={`absolute top-1/4 right-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-accent/20 blur-[90px] sm:blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-accent/40 group-hover:blur-[140px] ${isTouched ? 'bg-accent/40 blur-[140px]' : ''}`} />
+          <div className={`absolute bottom-1/4 left-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-secondaryAccent/20 blur-[90px] sm:blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-secondaryAccent/40 group-hover:blur-[140px] ${isTouched ? 'bg-secondaryAccent/40 blur-[140px]' : ''}`} />
           
           {/* Tech Circles Behind Model */}
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[300px] h-[280px] sm:h-[300px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out group-hover:border-accent/40 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] group-hover:scale-105 ${isTouched ? 'border-accent/50 shadow-[0_0_35px_rgba(56,189,248,0.5)] scale-105' : ''}`} />
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[450px] h-[400px] sm:h-[450px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-75 group-hover:border-accent/20 group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] group-hover:scale-105 ${isTouched ? 'border-accent/30 shadow-[0_0_55px_rgba(56,189,248,0.3)] scale-105' : ''}`} />
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] sm:w-[600px] h-[520px] sm:h-[600px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-150 group-hover:border-accent/10 group-hover:shadow-[0_0_70px_rgba(56,189,248,0.1)] group-hover:scale-105 ${isTouched ? 'border-accent/20 shadow-[0_0_75px_rgba(56,189,248,0.15)] scale-105' : ''}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] sm:w-[300px] h-[240px] sm:h-[300px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out group-hover:border-accent/40 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] group-hover:scale-105 ${isTouched ? 'border-accent/50 shadow-[0_0_35px_rgba(56,189,248,0.5)] scale-105' : ''}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-75 group-hover:border-accent/20 group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] group-hover:scale-105 ${isTouched ? 'border-accent/30 shadow-[0_0_55px_rgba(56,189,248,0.3)] scale-105' : ''}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-150 group-hover:border-accent/10 group-hover:shadow-[0_0_70px_rgba(56,189,248,0.1)] group-hover:scale-105 ${isTouched ? 'border-accent/20 shadow-[0_0_75px_rgba(56,189,248,0.15)] scale-105' : ''}`} />
 
           <img 
             src={robotImg} 
@@ -145,7 +145,7 @@ export default function Hero() {
               e.stopPropagation();
               return false;
             }}
-            className={`w-full h-auto object-contain max-h-[340px] sm:max-h-[440px] lg:max-h-[550px] transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none ${isTouched ? 'scale-105' : ''}`}
+            className={`w-full h-auto object-contain max-h-[300px] sm:max-h-[440px] lg:max-h-[550px] transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none ${isTouched ? 'scale-105' : ''}`}
             style={{ 
               filter: 'drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.25)) drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15))',
               WebkitTouchCallout: 'none',

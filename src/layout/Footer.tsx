@@ -12,15 +12,6 @@ export default function Footer() {
             {eventData.organizer.chapter}<br />
             {eventData.organizer.unit}
           </p>
-          <div className="flex gap-4">
-            {/* Social placeholders */}
-            <div className="w-10 h-10 border border-light/10 flex items-center justify-center hover:border-accent hover:text-accent transition-colors cursor-pointer">
-              <span className="text-xs">IN</span>
-            </div>
-            <div className="w-10 h-10 border border-light/10 flex items-center justify-center hover:border-accent hover:text-accent transition-colors cursor-pointer">
-              <span className="text-xs">IG</span>
-            </div>
-          </div>
         </div>
 
         <div>
