@@ -99,7 +99,7 @@ export default function Hero() {
         {/* Abstract Industrial Visual - Robot Model */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9, y: 0 }}
-          animate={{ opacity: 1, scale: 1, y: [-15, 15, -15] }}
+          animate={{ opacity: 1, scale: 1, y: [-12, 12, -12] }}
           transition={{ 
             opacity: { duration: 1, delay: 0.2 },
             scale: { duration: 1, delay: 0.2 },
@@ -107,7 +107,6 @@ export default function Hero() {
           }}
           onTouchStart={() => setIsTouched(true)}
           onTouchEnd={() => {
-            // Smoothly release touch effect after a short delay so the glow lingers nicely
             setTimeout(() => setIsTouched(false), 300);
           }}
           onTouchCancel={() => setIsTouched(false)}
@@ -117,7 +116,7 @@ export default function Hero() {
             e.stopPropagation();
             return false;
           }}
-          className={`flex justify-center items-center relative h-[320px] sm:h-[450px] lg:h-[600px] w-full max-w-full group cursor-pointer mt-8 lg:mt-0 select-none touch-manipulation overflow-hidden lg:overflow-visible ${isTouched ? 'is-touched' : ''}`}
+          className={`flex justify-center items-center relative min-h-[380px] sm:min-h-[460px] lg:min-h-[600px] w-full max-w-full group cursor-pointer mt-4 sm:mt-8 lg:mt-0 select-none touch-manipulation overflow-visible ${isTouched ? 'is-touched' : ''}`}
           style={{
             WebkitTouchCallout: 'none',
             WebkitUserSelect: 'none',
@@ -127,14 +126,14 @@ export default function Hero() {
             msUserSelect: 'none',
           }}
         >
-          {/* Background Glows for the robot */}
-          <div className={`absolute top-1/4 right-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-accent/20 blur-[90px] sm:blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-accent/40 group-hover:blur-[140px] ${isTouched ? 'bg-accent/40 blur-[140px]' : ''}`} />
-          <div className={`absolute bottom-1/4 left-1/4 w-48 sm:w-64 h-48 sm:h-64 bg-secondaryAccent/20 blur-[90px] sm:blur-[120px] rounded-full -z-20 transition-all duration-700 ease-out group-hover:bg-secondaryAccent/40 group-hover:blur-[140px] ${isTouched ? 'bg-secondaryAccent/40 blur-[140px]' : ''}`} />
+          {/* Background Atmospheric Radial Glows for the robot - full bleed, no bounding box */}
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-accent/25 blur-[70px] sm:blur-[110px] rounded-full -z-20 transition-all duration-700 ease-out pointer-events-none group-hover:bg-accent/40 group-hover:blur-[130px] ${isTouched ? 'bg-accent/40 blur-[130px]' : ''}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 lg:w-[480px] h-72 sm:h-96 lg:h-[480px] bg-secondaryAccent/20 blur-[80px] sm:blur-[130px] rounded-full -z-20 transition-all duration-700 ease-out pointer-events-none group-hover:bg-secondaryAccent/35 ${isTouched ? 'bg-secondaryAccent/35' : ''}`} />
           
-          {/* Tech Circles Behind Model */}
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] sm:w-[300px] h-[240px] sm:h-[300px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out group-hover:border-accent/40 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] group-hover:scale-105 ${isTouched ? 'border-accent/50 shadow-[0_0_35px_rgba(56,189,248,0.5)] scale-105' : ''}`} />
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-75 group-hover:border-accent/20 group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] group-hover:scale-105 ${isTouched ? 'border-accent/30 shadow-[0_0_55px_rgba(56,189,248,0.3)] scale-105' : ''}`} />
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-150 group-hover:border-accent/10 group-hover:shadow-[0_0_70px_rgba(56,189,248,0.1)] group-hover:scale-105 ${isTouched ? 'border-accent/20 shadow-[0_0_75px_rgba(56,189,248,0.15)] scale-105' : ''}`} />
+          {/* Tech Concentric Blueprint Rings Behind Model */}
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[320px] lg:w-[320px] h-[260px] sm:h-[320px] lg:h-[320px] rounded-full border border-white/10 -z-10 transition-all duration-700 ease-out pointer-events-none group-hover:border-accent/40 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] group-hover:scale-105 ${isTouched ? 'border-accent/50 shadow-[0_0_35px_rgba(56,189,248,0.5)] scale-105' : ''}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[450px] lg:w-[460px] h-[340px] sm:h-[450px] lg:h-[460px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-75 pointer-events-none group-hover:border-accent/20 group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] group-hover:scale-105 ${isTouched ? 'border-accent/30 shadow-[0_0_55px_rgba(56,189,248,0.3)] scale-105' : ''}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] sm:w-[580px] lg:w-[600px] h-[420px] sm:h-[580px] lg:h-[600px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-150 pointer-events-none group-hover:border-accent/10 group-hover:shadow-[0_0_70px_rgba(56,189,248,0.1)] group-hover:scale-105 ${isTouched ? 'border-accent/20 shadow-[0_0_75px_rgba(56,189,248,0.15)] scale-105' : ''}`} />
 
           <img 
             src={robotImg} 
@@ -145,9 +144,9 @@ export default function Hero() {
               e.stopPropagation();
               return false;
             }}
-            className={`w-full h-auto object-contain max-h-[300px] sm:max-h-[440px] lg:max-h-[550px] transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none ${isTouched ? 'scale-105' : ''}`}
+            className={`w-auto h-auto object-contain max-h-[340px] sm:max-h-[440px] lg:max-h-[550px] transition-transform duration-700 ease-out group-hover:scale-105 pointer-events-none select-none relative z-10 ${isTouched ? 'scale-105' : ''}`}
             style={{ 
-              filter: 'drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.25)) drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15))',
+              filter: 'drop-shadow(0px 25px 35px rgba(0, 0, 0, 0.45)) drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.3)) drop-shadow(0px 0px 25px rgba(56, 189, 248, 0.2))',
               WebkitTouchCallout: 'none',
               WebkitUserSelect: 'none',
               userSelect: 'none',
