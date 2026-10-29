@@ -11,6 +11,10 @@ node_modules
 dist
 dist-ssr
 *.local
+simready-assets*
+*.usd
+*.glb
+convert_asimov.py
 
 # Editor directories and files
 .vscode/*

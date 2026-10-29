@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import SmoothScroll from './components/SmoothScroll';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
@@ -13,39 +12,28 @@ import Registration from './sections/Registration';
 import Venue from './sections/Venue';
 import Committee from './sections/Committee';
 import Contact from './sections/Contact';
-import BlueprintLoader from './components/BlueprintLoader';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
-    <>
-      <BlueprintLoader
-        isVisible={isLoading}
-        onComplete={() => setIsLoading(false)}
-      />
-
-      {/* Site content — rendered in background, revealed after loader exits */}
-      <SmoothScroll>
-        <div className="min-h-screen w-full bg-background text-foreground flex flex-col relative grid-pattern overflow-x-hidden">
-          <Header />
-          <main className="flex-1">
-            <Hero />
-            <EventStrip />
-            <About />
-            <Program />
-            <Workshop />
-            <Speakers />
-            <Presentations />
-            <Registration />
-            <Venue />
-            <Committee />
-            <Contact />
-          </main>
-          <Footer />
-        </div>
-      </SmoothScroll>
-    </>
+    <SmoothScroll>
+      <div className="min-h-screen w-full bg-background text-foreground flex flex-col relative grid-pattern overflow-x-hidden">
+        <Header />
+        <main className="flex-1">
+          <Hero />
+          <EventStrip />
+          <About />
+          <Program />
+          <Workshop />
+          <Speakers />
+          <Presentations />
+          <Registration />
+          <Venue />
+          <Committee />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 }
 

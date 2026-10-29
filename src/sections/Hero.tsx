@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users } from 'lucide-react';
 import { eventData } from '../data/event';
 import InteractiveScribble from '../components/InteractiveScribble';
+import ConcentricBlueprintRings from '../components/ConcentricBlueprintRings';
 import robotImg from '../assets/hero-robot-orange-v2-transparent.png';
 
 export default function Hero() {
@@ -98,6 +99,7 @@ export default function Hero() {
 
         {/* Abstract Industrial Visual - Robot Model */}
         <motion.div 
+          id="hero-robot-anchor"
           initial={{ opacity: 0, scale: 0.9, y: 0 }}
           animate={{ opacity: 1, scale: 1, y: [-12, 12, -12] }}
           transition={{ 
@@ -126,14 +128,8 @@ export default function Hero() {
             msUserSelect: 'none',
           }}
         >
-          {/* Background Atmospheric Radial Glows for the robot - full bleed, no bounding box */}
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-accent/25 blur-[70px] sm:blur-[110px] rounded-full -z-20 transition-all duration-700 ease-out pointer-events-none group-hover:bg-accent/40 group-hover:blur-[130px] ${isTouched ? 'bg-accent/40 blur-[130px]' : ''}`} />
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 lg:w-[480px] h-72 sm:h-96 lg:h-[480px] bg-secondaryAccent/20 blur-[80px] sm:blur-[130px] rounded-full -z-20 transition-all duration-700 ease-out pointer-events-none group-hover:bg-secondaryAccent/35 ${isTouched ? 'bg-secondaryAccent/35' : ''}`} />
-          
           {/* Tech Concentric Blueprint Rings Behind Model */}
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[320px] lg:w-[320px] h-[260px] sm:h-[320px] lg:h-[320px] rounded-full border border-white/10 -z-10 transition-all duration-700 ease-out pointer-events-none group-hover:border-accent/40 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.4)] group-hover:scale-105 ${isTouched ? 'border-accent/50 shadow-[0_0_35px_rgba(56,189,248,0.5)] scale-105' : ''}`} />
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[450px] lg:w-[460px] h-[340px] sm:h-[450px] lg:h-[460px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-75 pointer-events-none group-hover:border-accent/20 group-hover:shadow-[0_0_50px_rgba(56,189,248,0.2)] group-hover:scale-105 ${isTouched ? 'border-accent/30 shadow-[0_0_55px_rgba(56,189,248,0.3)] scale-105' : ''}`} />
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] sm:w-[580px] lg:w-[600px] h-[420px] sm:h-[580px] lg:h-[600px] rounded-full border border-white/5 -z-10 transition-all duration-700 ease-out delay-150 pointer-events-none group-hover:border-accent/10 group-hover:shadow-[0_0_70px_rgba(56,189,248,0.1)] group-hover:scale-105 ${isTouched ? 'border-accent/20 shadow-[0_0_75px_rgba(56,189,248,0.15)] scale-105' : ''}`} />
+          <ConcentricBlueprintRings stage={3} isTouched={isTouched} />
 
           <img 
             src={robotImg} 
