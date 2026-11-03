@@ -2,15 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const items = [
+  "FREE REGISTRATION FOR EVERYONE",
   "INDUSTRIAL AUTOMATION",
   "INDUSTRIAL ELECTRONICS",
-  "PLC",
-  "HMI",
-  "VFD",
+  "PLC • HMI • VFD",
+  "ZERO PARTICIPATION FEE",
   "ACADEMIA × INDUSTRY",
   "IEEE PELS",
-  "INNOVATION",
-  "PRECISION",
+  "PROJECT COMPETITION",
+  "PAPER PRESENTATIONS",
+  "HANDS-ON WORKSHOPS",
 ];
 
 export default function EventStrip() {

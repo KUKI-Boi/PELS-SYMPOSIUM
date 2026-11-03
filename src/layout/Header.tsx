@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Cpu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '../components/Button';
+import logoImg from '../assets/logo.png';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -28,8 +29,12 @@ export default function Header() {
       isScrolled ? 'bg-background/90 backdrop-blur-md border-b border-light/10' : 'bg-transparent border-b border-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 text-accent hover:text-secondaryAccent transition-colors">
-          <Cpu className="w-8 h-8" />
+        <a href="#" className="flex items-center gap-3 text-accent hover:text-secondaryAccent transition-colors group">
+          <img
+            src={logoImg}
+            alt="SIA 2026 Logo"
+            className="w-9 h-9 rounded-lg object-contain shadow-[0_0_12px_rgba(255,132,12,0.25)] border border-light/10 group-hover:scale-105 transition-transform"
+          />
           <div className="font-display font-bold leading-none tracking-tight">
             <span className="block text-lg">SIA</span>
             <span className="block text-xs text-foreground/70 font-sans tracking-widest">2026</span>
@@ -49,8 +54,8 @@ export default function Header() {
               </a>
             ))}
           </div>
-          <Button variant="primary" href="#registration" className="px-6 py-2.5 text-xs">
-            Register Now
+          <Button variant="primary" href="#presentations" className="px-6 py-2.5 text-xs">
+            Register / Submit
           </Button>
         </nav>
 
@@ -83,8 +88,8 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
-              <Button variant="primary" href="#registration" className="w-full mt-4">
-                Register Now
+              <Button variant="primary" href="#presentations" className="w-full mt-4">
+                Register / Submit
               </Button>
             </div>
           </motion.div>

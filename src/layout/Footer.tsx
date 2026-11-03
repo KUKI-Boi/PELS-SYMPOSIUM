@@ -17,7 +17,7 @@ export default function Footer() {
         <div>
           <h4 className="font-display uppercase tracking-widest text-sm text-foreground/50 mb-6">Quick Links</h4>
           <ul className="flex flex-col gap-3">
-            {['About', 'Program', 'Workshop', 'Speakers', 'Registration', 'Venue'].map(link => (
+            {['About', 'Program', 'Workshop', 'Speakers', 'Presentations', 'Venue'].map(link => (
               <li key={link}>
                 <a href={`#${link.toLowerCase()}`} className="text-muted hover:text-accent transition-colors">
                   {link}
@@ -30,14 +30,18 @@ export default function Footer() {
         <div>
           <h4 className="font-display uppercase tracking-widest text-sm text-foreground/50 mb-6">Contact</h4>
           <address className="not-italic text-muted flex flex-col gap-2">
-            <p className="font-medium text-foreground">{eventData.contact.name}</p>
-            <p className="text-sm">{eventData.contact.role}</p>
-            <a href={`mailto:${eventData.contact.email}`} className="hover:text-accent transition-colors mt-2">
-              {eventData.contact.email}
-            </a>
-            <a href={`tel:${eventData.contact.phone.replace(/\s+/g, '')}`} className="hover:text-accent transition-colors">
-              {eventData.contact.phone}
-            </a>
+            <p className="font-medium text-foreground">{eventData.contact.facultyCoordinators[0].name}</p>
+            <p className="text-sm">{eventData.contact.facultyCoordinators[0].role}</p>
+            {eventData.contact.facultyCoordinators[0].email && (
+              <a href={`mailto:${eventData.contact.facultyCoordinators[0].email}`} className="hover:text-accent transition-colors mt-2">
+                {eventData.contact.facultyCoordinators[0].email}
+              </a>
+            )}
+            {eventData.contact.facultyCoordinators[0].phone && (
+              <a href={`tel:${eventData.contact.facultyCoordinators[0].phone.replace(/\s+/g, '')}`} className="hover:text-accent transition-colors">
+                {eventData.contact.facultyCoordinators[0].phone}
+              </a>
+            )}
           </address>
         </div>
       </div>

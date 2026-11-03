@@ -15,7 +15,7 @@ export default function Workshop() {
         subtitle="A comprehensive hands-on session focusing on the core technologies driving modern industrial automation."
       />
 
-      <Reveal stagger staggerDelay={0.15} className="mt-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-8 justify-between relative">
+      <Reveal stagger staggerDelay={0.15} className="mt-8 sm:mt-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-6 justify-between relative">
         {/* Connection line background (desktop) */}
         <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-light/10 -translate-y-1/2 z-0" />
 
@@ -24,19 +24,19 @@ export default function Workshop() {
           return (
             <React.Fragment key={topic.abbr}>
               <div className="relative z-10 flex-1 w-full max-w-sm group">
-                <div className="glass-panel tech-border p-8 h-full flex flex-col items-center text-center interactive-card hover:bg-surface/90">
-                  <div className="w-16 h-16 rounded-full bg-surface border border-accent/20 flex items-center justify-center mb-6 group-hover:border-accent group-hover:scale-110 transition-all duration-500 shadow-[0_0_30px_rgba(60,208,54,0.0)] group-hover:shadow-[0_0_30px_rgba(60,208,54,0.2)]">
-                    <Icon className="w-8 h-8 text-accent" />
+                <div className="glass-panel tech-border p-6 sm:p-7 h-full flex flex-col items-center text-center interactive-card hover:bg-surface/90">
+                  <div className="w-14 h-14 rounded-full bg-surface border border-accent/20 flex items-center justify-center mb-4 group-hover:border-accent group-hover:scale-110 transition-all duration-500 shadow-[0_0_30px_rgba(60,208,54,0.0)] group-hover:shadow-[0_0_30px_rgba(60,208,54,0.2)]">
+                    <Icon className="w-7 h-7 text-accent" />
                   </div>
-                  <h3 className="font-display text-4xl font-bold mb-2 tracking-tight text-foreground">{topic.abbr}</h3>
-                  <p className="text-muted font-sans font-medium">{topic.name}</p>
+                  <h3 className="font-display text-3xl font-bold mb-1.5 tracking-tight text-foreground">{topic.abbr}</h3>
+                  <p className="text-muted font-sans font-medium text-sm">{topic.name}</p>
                 </div>
               </div>
               
               {i < eventData.workshop.topics.length - 1 && (
-                <div className="relative z-10 flex justify-center lg:px-4">
-                  <div className="w-px h-12 lg:w-12 lg:h-px bg-accent/50 relative">
-                    <ArrowRight className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-accent hidden lg:block" />
+                <div className="relative z-10 flex justify-center lg:px-2">
+                  <div className="w-px h-8 lg:w-10 lg:h-px bg-accent/50 relative">
+                    <ArrowRight className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-accent hidden lg:block w-4 h-4" />
                   </div>
                 </div>
               )}
@@ -45,8 +45,8 @@ export default function Workshop() {
         })}
       </Reveal>
 
-      <div className="mt-20 flex justify-center">
-        <Button variant="outline" href="#contact">
+      <div className="mt-8 sm:mt-10 flex justify-center">
+        <Button variant="outline" href="#contact" className="py-3 px-6 text-xs">
           Request Workshop Details
         </Button>
       </div>

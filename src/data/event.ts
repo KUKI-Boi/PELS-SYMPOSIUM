@@ -10,20 +10,41 @@ export const eventData = {
   date: "November 2026",
   capacity: 120,
   venue: {
-    name: "College Seminar Hall",
-    institution: "Christ University, Kengeri Campus",
+    name: "First Block Auditorium",
+    institution: "Christ (Deemed to be University), Kengeri Campus",
     department: "Department of Electrical and Electronics Engineering",
-    address: "Address placeholder",
-    mapUrl: "Map placeholder",
-    googleMapsEmbed: "Google Maps integration placeholder",
-    parking: "Parking information placeholder",
-    transportation: "Transportation information placeholder",
+    address: "Block I, Christ University, Kanmanike, Kumbalgodu, Mysore Road, Bengaluru, Karnataka 560074",
+    mapUrl: "https://maps.google.com/?q=Christ+Deemed+to+be+University+Kengeri+Campus+Bengaluru",
+    googleMapsEmbed: "https://maps.google.com/maps?q=Christ%20Deemed%20to%20be%20University%2C%20Kengeri%20Campus%2C%20Kanmanike%2C%20Kumbalgodu%2C%20Bengaluru&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    parking: "Designated visitor & participant parking available inside Gate 1 near Block I",
+    transportation: "Accessible via Namma Metro Purple Line (Challaghatta & Kengeri Bus Terminal Stations) and BMTC buses on Mysore Road",
   },
   contact: {
-    name: "Dr. Vijaya Margaret",
-    role: "Faculty Advisor, PELS Christ University",
-    email: "vijaya.margaret@christuniversity.in",
-    phone: "+91 9945869869",
+    facultyCoordinators: [
+      {
+        name: "Dr. Vijaya Margaret",
+        role: "Faculty Advisor, PELS Christ University",
+        email: "vijaya.margaret@christuniversity.in",
+        phone: "+91 9945869869",
+      },
+      {
+        name: "Dr. Manikandan P",
+        role: "Faculty Coordinator",
+        phone: "+91 8904191138",
+      },
+    ],
+    studentCoordinators: [
+      {
+        name: "Tom Augustine",
+        role: "Student Coordinator",
+        phone: "+91 90747 41838",
+      },
+      {
+        name: "SATYA BONGU",
+        role: "Student Coordinator",
+        phone: "+91 6303235410",
+      },
+    ],
     socials: {
       instagram: "Instagram placeholder",
       linkedin: "LinkedIn placeholder",
@@ -86,6 +107,14 @@ export const eventData = {
       name: "Dr. Vijaya Margaret",
       role: "Faculty Advisor, PELS Christ University",
       department: "Department of Electrical and Electronics Engineering",
+      phone: "+91 9945869869",
+      image: "",
+    },
+    {
+      name: "Dr. Manikandan P",
+      role: "Faculty Coordinator",
+      department: "Department of Electrical and Electronics Engineering",
+      phone: "+91 8904191138",
       image: "",
     }
   ],
@@ -97,5 +126,57 @@ export const eventData = {
       { name: "IEEE Member", fee: "Fee to be announced" },
       { name: "Industry Professional", fee: "Fee to be announced" },
     ]
+  },
+  showcases: {
+    paperPresentation: {
+      title: "Paper & Project Presentation",
+      subtitle: "Present research papers and engineering innovations on recent trends in industrial electronics and automation.",
+      googleFormUrl: "https://forms.gle/PELS-Paper-Presentation-2026",
+      status: "OPEN",
+      badge: "Submissions Open",
+      teamSize: "1 to 3 Members",
+      tracks: [
+        "Power Electronics & Smart Grid Systems",
+        "Industrial Automation & PLC/SCADA/HMI",
+        "Robotics, Mechatronics & Embedded Systems",
+        "Electric Drives & Renewable Energy Integration"
+      ],
+      guidelines: [
+        "Abstract submission should not exceed 300 words.",
+        "Full papers must adhere to IEEE standard double-column conference format.",
+        "Selected papers will be reviewed by academic and industry panelists.",
+        "Certificate of presentation awarded to all registered authors."
+      ],
+      importantDates: [
+        { label: "Abstract Submission Deadline", date: "October 20, 2026" },
+        { label: "Acceptance Notification", date: "October 28, 2026" },
+        { label: "Final Presentation / Camera Ready", date: "November 5, 2026" },
+      ]
+    },
+    projectCompetition: {
+      title: "Industrial Project Competition",
+      subtitle: "Showcase working engineering prototypes, industrial automation rigs, and hardware solutions to industry experts.",
+      googleFormUrl: "https://forms.gle/PELS-Project-Competition-2026",
+      status: "OPEN",
+      badge: "Registrations Open",
+      teamSize: "Up to 4 Members",
+      tracks: [
+        "Industrial Automation & Hardware Testbenches",
+        "IoT & Industry 4.0 Smart Factory Solutions",
+        "Electric Vehicle & Power Converter Prototypes",
+        "Sustainable Energy & Embedded Robotics"
+      ],
+      guidelines: [
+        "Teams must demonstrate a functional hardware prototype or software-in-the-loop setup.",
+        "A power supply socket and display desk will be provided at the First Block venue.",
+        "Evaluation criteria include innovation, technical rigor, industrial relevance, and oral presentation.",
+        "Top 3 winning teams receive cash awards, trophies, and merit certificates."
+      ],
+      importantDates: [
+        { label: "Project Registration Closes", date: "October 25, 2026" },
+        { label: "Shortlisting Announcement", date: "October 26, 2026" },
+        { label: "Live Showcase & Judging (Day 2)", date: "Symposium Day 2" },
+      ]
+    }
   }
 };
