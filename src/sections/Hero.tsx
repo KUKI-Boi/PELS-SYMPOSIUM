@@ -84,7 +84,7 @@ export default function Hero() {
             <div className="flex items-center gap-3 text-foreground/80">
               <Calendar className="w-5 h-5 text-accent flex-shrink-0" />
               <div className="flex flex-col leading-snug">
-                <span className="font-mono text-foreground font-medium">November</span>
+                <span className="font-mono text-foreground font-medium">25–26 November</span>
                 <span className="font-mono text-muted text-xs">2026</span>
               </div>
             </div>

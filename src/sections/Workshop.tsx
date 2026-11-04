@@ -1,42 +1,60 @@
 import React from 'react';
 import { Section, SectionHeader } from '../components/Section';
 import { eventData } from '../data/event';
-import { ArrowRight, Cpu, MonitorPlay, Activity } from 'lucide-react';
+import { Cpu, MonitorPlay, Activity, Network, ArrowRight, ArrowDown } from 'lucide-react';
 import { Button } from '../components/Button';
 import Reveal from '../components/Reveal';
 
 export default function Workshop() {
-  const icons = [Cpu, MonitorPlay, Activity];
+  const icons = [Cpu, MonitorPlay, Activity, Network];
 
   return (
     <Section id="workshop" className="bg-background relative border-b border-light/5">
       <SectionHeader 
         title={eventData.workshop.title}
-        subtitle="A comprehensive hands-on session focusing on the core technologies driving modern industrial automation."
+        subtitle="Two days of rigorous, hands-on technical sessions covering the core pillars of industrial automation and smart factory architecture."
       />
 
-      <Reveal stagger staggerDelay={0.15} className="mt-8 sm:mt-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-6 justify-between relative">
-        {/* Connection line background (desktop) */}
-        <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-light/10 -translate-y-1/2 z-0" />
-
+      <Reveal stagger staggerDelay={0.12} className="mt-8 sm:mt-10 flex flex-col lg:flex-row items-stretch justify-between relative gap-4 lg:gap-0">
         {eventData.workshop.topics.map((topic, i) => {
           const Icon = icons[i];
           return (
             <React.Fragment key={topic.abbr}>
-              <div className="relative z-10 flex-1 w-full max-w-sm group">
-                <div className="glass-panel tech-border p-6 sm:p-7 h-full flex flex-col items-center text-center interactive-card hover:bg-surface/90">
-                  <div className="w-14 h-14 rounded-full bg-surface border border-accent/20 flex items-center justify-center mb-4 group-hover:border-accent group-hover:scale-110 transition-all duration-500 shadow-[0_0_30px_rgba(60,208,54,0.0)] group-hover:shadow-[0_0_30px_rgba(60,208,54,0.2)]">
-                    <Icon className="w-7 h-7 text-accent" />
+              {/* Module Card */}
+              <div className="flex-1 w-full flex flex-col group min-w-0">
+                <div className="glass-panel tech-border p-5 sm:p-6 h-full flex flex-col items-center text-center interactive-card hover:bg-surface/90 rounded-xl relative">
+                  {/* Step indicator */}
+                  <span className="absolute top-3 right-3 font-mono text-[10px] text-accent/70 px-2 py-0.5 rounded bg-accent/10 border border-accent/20">
+                    MODULE 0{i + 1}
+                  </span>
+
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-surface border border-accent/20 flex items-center justify-center mb-3.5 sm:mb-4 group-hover:border-accent group-hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.15)] shrink-0">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
                   </div>
-                  <h3 className="font-display text-3xl font-bold mb-1.5 tracking-tight text-foreground">{topic.abbr}</h3>
-                  <p className="text-muted font-sans font-medium text-sm">{topic.name}</p>
+                  <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold mb-1 tracking-tight text-foreground">{topic.abbr}</h3>
+                  <p className="text-muted font-sans font-medium text-xs sm:text-sm leading-snug">{topic.name}</p>
                 </div>
               </div>
-              
+
+              {/* Inter-Module Flow Arrow */}
               {i < eventData.workshop.topics.length - 1 && (
-                <div className="relative z-10 flex justify-center lg:px-2">
-                  <div className="w-px h-8 lg:w-10 lg:h-px bg-accent/50 relative">
-                    <ArrowRight className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-accent hidden lg:block w-4 h-4" />
+                <div className="relative z-10 flex items-center justify-center my-1 lg:my-0 lg:px-2.5 shrink-0 self-center">
+                  {/* Desktop Horizontal Flow: Line + Arrow Badge + Line */}
+                  <div className="hidden lg:flex items-center">
+                    <div className="w-3 xl:w-5 h-px bg-gradient-to-r from-accent/10 via-accent/50 to-accent/20" />
+                    <div className="w-7 h-7 rounded-full bg-surface border border-accent/40 flex items-center justify-center shadow-[0_0_12px_rgba(56,189,248,0.25)] hover:border-accent hover:scale-110 transition-all">
+                      <ArrowRight className="w-3.5 h-3.5 text-accent" />
+                    </div>
+                    <div className="w-3 xl:w-5 h-px bg-gradient-to-r from-accent/20 via-accent/50 to-accent/10" />
+                  </div>
+
+                  {/* Mobile / Tablet Vertical Flow */}
+                  <div className="flex lg:hidden flex-col items-center">
+                    <div className="h-2 w-px bg-accent/30" />
+                    <div className="w-7 h-7 rounded-full bg-surface border border-accent/40 flex items-center justify-center my-0.5 shadow-[0_0_12px_rgba(56,189,248,0.2)]">
+                      <ArrowDown className="w-3.5 h-3.5 text-accent" />
+                    </div>
+                    <div className="h-2 w-px bg-accent/30" />
                   </div>
                 </div>
               )}

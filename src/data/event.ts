@@ -7,7 +7,7 @@ export const eventData = {
     department: "Department of Electrical and Electronics Engineering, Christ University, Kengeri Campus",
     ouCode: "SBC173411",
   },
-  date: "November 2026",
+  date: "25–26 November 2026",
   capacity: 120,
   venue: {
     name: "First Block Auditorium",
@@ -63,15 +63,19 @@ export const eventData = {
     topics: [
       {
         abbr: "PLC",
-        name: "Programmable Logic Controller",
+        name: "Programmable Logic Controller (Basics & Advance)",
       },
       {
         abbr: "HMI",
-        name: "Human-Machine Interface",
+        name: "Human-Machine Interface Programming",
       },
       {
         abbr: "VFD",
-        name: "Variable Frequency Drive",
+        name: "Variable Frequency Drive Control",
+      },
+      {
+        abbr: "Node-RED",
+        name: "IT-OT Integration Hands-on",
       }
     ]
   },
@@ -80,27 +84,26 @@ export const eventData = {
       { time: "10:00 – 10:15 AM", title: "Inauguration", type: "OPENING" },
       { time: "10:15 – 11:00 AM", title: "Keynote Address by an Expert", type: "KEYNOTE" },
       { time: "11:00 – 11:30 AM", title: "Networking Tea Break", type: "NETWORKING" },
-      { time: "11:30 AM – 12:45 PM", title: "Panel Discussion on Recent Trends in Industrial Electronics", type: "PANEL" },
+      { time: "11:30 AM – 12:45 PM", title: "Workshop on Industrial Automation - Basics of PLC Programming and HMI Programming", type: "TECHNICAL" },
       { time: "12:45 – 1:45 PM", title: "Networking Lunch", type: "NETWORKING" },
-      { time: "1:45 – 4:30 PM", title: "Hands-on Workshop on Industrial Automation (PLC, HMI & VFD) / Poster Presentation", type: "WORKSHOP" },
+      { time: "1:45 – 4:30 PM", title: "Workshop on Industrial Automation - Basics of PLC Programming and HMI Programming", type: "TECHNICAL" },
       { time: "4:30 – 5:30 PM", title: "Networking High Tea", type: "NETWORKING" },
     ],
     day2: [
-      { time: "10:00 – 10:30 AM", title: "Fireside Chat", type: "FIRESIDE" },
-      { time: "10:30 – 11:30 AM", title: "Industrial Talk", type: "TALK" },
+      { time: "10:00 – 10:30 AM", title: "Workshop on Industrial Automation - Advance PLC Programming and HMI Programming", type: "TECHNICAL" },
+      { time: "10:30 – 11:30 AM", title: "Workshop on Industrial Automation - Variable Frequency Drive", type: "TECHNICAL" },
       { time: "11:30 – 11:45 AM", title: "Networking Tea Break", type: "NETWORKING" },
-      { time: "11:45 AM – 12:45 PM", title: "Paper Presentation / One-on-One Session with Industry Experts / Technical Quiz", type: "TECHNICAL" },
+      { time: "11:45 AM – 12:45 PM", title: "Workshop on Industrial Automation - HMI Programming", type: "TECHNICAL" },
       { time: "12:45 – 1:45 PM", title: "Networking Lunch", type: "NETWORKING" },
-      { time: "1:45 – 2:45 PM", title: "Paper Presentation", type: "TECHNICAL" },
-      { time: "2:45 – 4:00 PM", title: "Project Competition / Hands-on Workshop on Industrial Automation (PLC, HMI & VFD)", type: "COMPETITION" },
-      { time: "4:00 – 4:30 PM", title: "Valedictory followed by High Tea", type: "CLOSING" },
+      { time: "1:45 – 2:45 PM", title: "Workshop on Industrial Automation - HMI Programming", type: "TECHNICAL" },
+      { time: "2:45 – 4:00 PM", title: "Hands on in IT- OT integration using Node-Red", type: "HANDS-ON" },
     ]
   },
   speakers: [
-    { id: 1, role: "Keynote", type: "Expert Speaker", name: "To Be Announced", organization: "", session: "Keynote Address", bio: "", image: "" },
-    { id: 2, role: "Industrial Talk", type: "Industry Expert", name: "To Be Announced", organization: "", session: "Industrial Talk", bio: "", image: "" },
-    { id: 3, role: "Panel Discussion", type: "Industry Panel", name: "To Be Announced", organization: "", session: "Panel Discussion on Recent Trends", bio: "", image: "" },
-    { id: 4, role: "Fireside Chat", type: "Guest Speaker", name: "To Be Announced", organization: "", session: "Fireside Chat", bio: "", image: "" },
+    { id: 1, role: "Keynote", type: "Expert Speaker", name: "To Be Announced", organization: "", session: "Keynote Address by an Expert", bio: "", image: "" },
+    { id: 2, role: "PLC & HMI", type: "Automation Specialist", name: "To Be Announced", organization: "", session: "Basics & Advance PLC and HMI Programming", bio: "", image: "" },
+    { id: 3, role: "VFD Drives", type: "Drives Engineer", name: "To Be Announced", organization: "", session: "Variable Frequency Drive Workshop", bio: "", image: "" },
+    { id: 4, role: "IT-OT Node-RED", type: "IoT Architect", name: "To Be Announced", organization: "", session: "Hands on in IT-OT Integration using Node-RED", bio: "", image: "" },
   ],
   committee: [
     {

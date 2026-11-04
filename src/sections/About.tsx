@@ -25,7 +25,7 @@ export default function About() {
               {[
                 "Hands-on technical learning with industrial equipment",
                 "Direct interaction with industry experts",
-                "Skill development in PLC, HMI, and VFD",
+                "Skill development in PLC, HMI, VFD, and Node-RED IT-OT Integration",
                 "Professional networking opportunities"
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-2.5">
