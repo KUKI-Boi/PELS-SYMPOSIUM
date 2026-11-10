@@ -8,7 +8,11 @@ export const eventData = {
     ouCode: "SBC173411",
   },
   date: "25–26 November 2026",
-  capacity: 120,
+  capacity: 80,
+  forms: {
+    christ: "https://forms.gle/tXmEgLNrp91VfU9E9",
+    external: "https://docs.google.com/forms/d/e/1FAIpQLSfRrlSd9YCn-Q4a8qeOZApaRfIZGBWpHgTyM8cjyKVKYdhehQ/viewform?usp=sharing&ouid=117019346005384506173",
+  },
   venue: {
     name: "First Block Auditorium",
     institution: "Christ (Deemed to be University), Kengeri Campus",
@@ -122,19 +126,18 @@ export const eventData = {
     }
   ],
   registration: {
-    status: "COMING SOON",
+    status: "OPEN",
     categories: [
-      { name: "Student", fee: "Fee to be announced" },
-      { name: "Faculty", fee: "Fee to be announced" },
-      { name: "IEEE Member", fee: "Fee to be announced" },
-      { name: "Industry Professional", fee: "Fee to be announced" },
+      { name: "Student", fee: "Free Entry" },
+      { name: "Faculty", fee: "Free Entry" },
+      { name: "IEEE Member", fee: "Free Entry" },
+      { name: "Industry Professional", fee: "Free Entry" },
     ]
   },
   showcases: {
     paperPresentation: {
       title: "Paper & Project Presentation",
       subtitle: "Present research papers and engineering innovations on recent trends in industrial electronics and automation.",
-      googleFormUrl: "https://forms.gle/PELS-Paper-Presentation-2026",
       status: "OPEN",
       badge: "Submissions Open",
       teamSize: "1 to 3 Members",
@@ -159,7 +162,6 @@ export const eventData = {
     projectCompetition: {
       title: "Industrial Project Competition",
       subtitle: "Showcase working engineering prototypes, industrial automation rigs, and hardware solutions to industry experts.",
-      googleFormUrl: "https://forms.gle/PELS-Project-Competition-2026",
       status: "OPEN",
       badge: "Registrations Open",
       teamSize: "Up to 4 Members",

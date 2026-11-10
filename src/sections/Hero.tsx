@@ -98,8 +98,8 @@ export default function Hero() {
             <div className="flex items-center gap-3 text-foreground/80">
               <Users className="w-5 h-5 text-accent flex-shrink-0" />
               <div className="flex flex-col leading-snug">
-                <span className="font-mono text-foreground font-bold text-sm">120</span>
-                <span className="font-mono text-muted text-[11px] uppercase tracking-wider">ATTENDEES</span>
+                <span className="font-mono text-foreground font-bold text-sm">{eventData.capacity}</span>
+                <span className="font-mono text-muted text-[11px] uppercase tracking-wider">PARTICIPANTS</span>
               </div>
             </div>
           </div>

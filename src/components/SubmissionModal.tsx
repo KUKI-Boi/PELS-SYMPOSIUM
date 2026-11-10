@@ -1,16 +1,17 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Users, Calendar, Award, CheckCircle2, Ticket } from 'lucide-react';
+import { X, ExternalLink, Users, Calendar, Award, CheckCircle2, Ticket, Hotel } from 'lucide-react';
 import { Button } from './Button';
+import { eventData } from '../data/event';
 
 export interface ShowcaseModalData {
   title: string;
   subtitle: string;
-  googleFormUrl: string;
   badge: string;
   teamSize: string;
   tracks: string[];
   guidelines: string[];
   importantDates: { label: string; date: string }[];
+  googleFormUrl?: string;
 }
 
 interface SubmissionModalProps {
@@ -93,6 +94,14 @@ export default function SubmissionModal({ isOpen, onClose, data }: SubmissionMod
             </div>
           </div>
 
+          {/* Stay Logistics Notice */}
+          <div className="mb-5 p-3 rounded-xl bg-accent/5 border border-accent/15 flex items-center gap-3 text-xs">
+            <Hotel className="w-4 h-4 text-accent shrink-0" />
+            <p className="text-secondaryAccent font-light">
+              <strong className="text-foreground">Accommodation:</strong> On-campus hostel stay is available at Christ Kengeri Campus for outstation participants (requested directly in the External form).
+            </p>
+          </div>
+
           {/* Tracks */}
           <div className="mb-5">
             <h4 className="text-xs font-mono uppercase tracking-widest text-accent mb-2.5">
@@ -142,21 +151,19 @@ export default function SubmissionModal({ isOpen, onClose, data }: SubmissionMod
             </div>
           </div>
 
-          {/* Action Footer */}
+          {/* Action Footer: 2 Form Placeholders */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-light/10">
-            <span className="text-xs font-mono text-muted/80 text-center sm:text-left">
-              Registration is verified via Google Forms.
-            </span>
-            <div className="flex items-center gap-2 w-full sm:w-auto">
-              <Button
-                variant="outline"
-                onClick={onClose}
-                className="w-full sm:w-auto text-xs py-2.5"
-              >
-                Close
-              </Button>
+            <Button
+              variant="outline"
+              onClick={onClose}
+              className="w-full sm:w-auto text-xs py-2.5"
+            >
+              Close
+            </Button>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
               <a
-                href={data.googleFormUrl}
+                href={eventData.forms.christ}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto"
@@ -165,7 +172,22 @@ export default function SubmissionModal({ isOpen, onClose, data }: SubmissionMod
                   variant="primary"
                   className="w-full sm:w-auto text-xs py-2.5 whitespace-nowrap bg-gradient-to-r from-accent to-[#0ea5e9]"
                 >
-                  <span>Open Google Form</span>
+                  <span>Christ University Form</span>
+                  <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
+                </Button>
+              </a>
+
+              <a
+                href={eventData.forms.external}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  variant="primary"
+                  className="w-full sm:w-auto text-xs py-2.5 whitespace-nowrap bg-gradient-to-r from-[#ff840c] to-[#ea580c] border-[#ff840c]"
+                >
+                  <span>External Form (Stay)</span>
                   <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
                 </Button>
               </a>
@@ -176,4 +198,3 @@ export default function SubmissionModal({ isOpen, onClose, data }: SubmissionMod
     </AnimatePresence>
   );
 }
-
