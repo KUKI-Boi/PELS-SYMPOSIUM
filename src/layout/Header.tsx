@@ -55,7 +55,7 @@ export default function Header() {
             ))}
           </div>
           <Button variant="primary" href="#presentations" className="px-6 py-2.5 text-xs">
-            Register / Submit
+            Register Now
           </Button>
         </nav>
 
@@ -89,7 +89,7 @@ export default function Header() {
                 </a>
               ))}
               <Button variant="primary" href="#presentations" className="w-full mt-4">
-                Register / Submit
+                Register Now
               </Button>
             </div>
           </motion.div>

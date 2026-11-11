@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Section, SectionHeader } from '../components/Section';
-import { FileText, Lightbulb, ExternalLink, Sparkles, Award, Users, BookOpen, Hotel } from 'lucide-react';
+import { ExternalLink, Award, User, BookOpen, Hotel } from 'lucide-react';
 import { Button } from '../components/Button';
 import { eventData } from '../data/event';
 import SubmissionModal, { type ShowcaseModalData } from '../components/SubmissionModal';
@@ -8,14 +8,13 @@ import SubmissionModal, { type ShowcaseModalData } from '../components/Submissio
 export default function Presentations() {
   const [activeModalData, setActiveModalData] = useState<ShowcaseModalData | null>(null);
 
-  const paperData = eventData.showcases.paperPresentation;
-  const projectData = eventData.showcases.projectCompetition;
+  const expertData = eventData.showcases.expertHandling;
 
   return (
     <Section id="presentations" className="bg-background relative border-b border-light/5">
       <SectionHeader 
-        title="Technical Showcases & Competitions" 
-        subtitle="Opportunities for students, researchers, and engineers to present papers and demonstrate working hardware prototypes."
+        title="Expert Handling Sessions" 
+        subtitle="Hands-on industrial automation training and practical lab sessions conducted by expert faculty and researchers."
       />
 
       <div className="mt-4 flex justify-center">
@@ -25,24 +24,24 @@ export default function Presentations() {
         </div>
       </div>
 
-      {/* Combined Unified Card */}
-      <div className="mt-8 sm:mt-10 glass-panel border border-light/10 p-6 sm:p-8 md:p-10 relative overflow-hidden rounded-2xl shadow-2xl">
+      {/* Clean Combined Registration Card */}
+      <div className="mt-8 sm:mt-10 max-w-4xl mx-auto glass-panel border border-light/10 p-6 sm:p-8 md:p-10 relative overflow-hidden rounded-2xl shadow-2xl text-center">
         {/* Top Feature Badges */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-6">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-6">
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/25">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
             Registrations Open
           </span>
           <span className="text-xs font-mono text-muted/80 px-2.5 py-0.5 rounded bg-white/[0.03] border border-light/5 flex items-center gap-1.5">
-            <Users className="w-3.5 h-3.5 text-accent" />
-            Solo & Teams (1 to 4 Members)
+            <User className="w-3.5 h-3.5 text-accent" />
+            Individual Participation
           </span>
           <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20 font-semibold">
-            Free Entry
+            100% Free Entry
           </span>
           <span className="text-xs font-mono text-[#ff840c] bg-[#ff840c]/10 px-2.5 py-0.5 rounded border border-[#ff840c]/25 flex items-center gap-1.5">
             <Award className="w-3.5 h-3.5" />
-            IEEE Certificates & Cash Prizes
+            IEEE Participation Certificates
           </span>
           <span className="text-xs font-mono text-secondaryAccent bg-white/[0.04] px-2.5 py-0.5 rounded border border-light/10 flex items-center gap-1.5">
             <Hotel className="w-3.5 h-3.5 text-accent" />
@@ -50,152 +49,65 @@ export default function Presentations() {
           </span>
         </div>
 
-        {/* Two Combined Panels Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch pt-2">
-          
-          {/* Track 1: Paper & Project Presentation */}
-          <div className="bg-surface/60 border border-light/10 p-5 sm:p-6 rounded-xl flex flex-col justify-between hover:border-accent/30 transition-colors">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-accent/10 border border-accent/25 flex items-center justify-center shrink-0">
-                  <FileText className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">
-                    Paper & Project Presentation
-                  </h3>
-                  <span className="text-[11px] font-mono text-secondaryAccent">
-                    1 to 3 Members • IEEE Presentation Format
-                  </span>
-                </div>
-              </div>
+        <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-3">
+          Expert Handling Sessions
+        </h3>
+        <p className="text-muted text-xs sm:text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed mb-8">
+          Two days of intensive, expert-guided hands-on training on PLC programming, HMI interface, Variable Frequency Drives (VFD), and IT-OT integration using Node-RED. Strictly individual participation — select your affiliated registration link below to register.
+        </p>
 
-              <p className="text-muted text-xs sm:text-sm font-light leading-relaxed mb-4">
-                Present technical research papers and innovations on emerging industrial electronics paradigms, drives, and automation.
-              </p>
-
-              <div className="space-y-2 mb-4">
-                <div className="text-[11px] font-mono uppercase tracking-wider text-accent flex items-center justify-between">
-                  <span>Eligible Tracks</span>
-                  <span className="text-[10px] text-muted">Certificates Awarded</span>
-                </div>
-                {paperData.tracks.map((track, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-foreground/85 font-mono bg-background/50 p-2 rounded border border-light/5">
-                    <Sparkles className="w-3 h-3 text-accent shrink-0" />
-                    <span className="truncate">{track}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+        {/* The 2 Form Placeholders */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
+          {/* Form Placeholder 1: Christ University */}
+          <a
+            href={eventData.forms.christ}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:flex-1"
+          >
             <Button
-              variant="outline"
-              onClick={() => setActiveModalData({
-                ...paperData,
-                googleFormUrl: eventData.forms.christ,
-              })}
-              className="w-full text-xs py-2.5 mt-2 flex items-center justify-center gap-1.5"
+              variant="primary"
+              className="w-full py-3.5 px-5 text-xs sm:text-sm tracking-wider whitespace-nowrap h-12 bg-gradient-to-r from-accent to-[#0284c7] border-accent hover:brightness-110 shadow-lg flex items-center justify-center font-medium"
             >
-              <BookOpen className="w-3.5 h-3.5 text-accent" />
-              <span>Paper Guidelines & Deadlines</span>
+              <span>Registration — Christ University</span>
+              <ExternalLink className="w-4 h-4 ml-2 shrink-0" />
             </Button>
-          </div>
+          </a>
 
-          {/* Track 2: Industrial Project Competition */}
-          <div className="bg-surface/60 border border-light/10 p-5 sm:p-6 rounded-xl flex flex-col justify-between hover:border-[#ff840c]/30 transition-colors">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-[#ff840c]/10 border border-[#ff840c]/25 flex items-center justify-center shrink-0">
-                  <Lightbulb className="w-5 h-5 text-[#ff840c]" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">
-                    Industrial Project Competition
-                  </h3>
-                  <span className="text-[11px] font-mono text-secondaryAccent">
-                    Up to 4 Members • Hardware Prototype Demonstration
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-muted text-xs sm:text-sm font-light leading-relaxed mb-4">
-                Showcase functional hardware prototypes, PLC rigs, smart factory solutions, and mechatronic setups to industry judges.
-              </p>
-
-              <div className="space-y-2 mb-4">
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[#ff840c] flex items-center justify-between">
-                  <span>Competition Tracks</span>
-                  <span className="text-[10px] text-muted">Cash Awards & Trophies</span>
-                </div>
-                {projectData.tracks.map((track, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs text-foreground/85 font-mono bg-background/50 p-2 rounded border border-light/5">
-                    <Sparkles className="w-3 h-3 text-[#ff840c] shrink-0" />
-                    <span className="truncate">{track}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+          {/* Form Placeholder 2: External Participants */}
+          <a
+            href={eventData.forms.external}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:flex-1"
+          >
             <Button
-              variant="outline"
-              onClick={() => setActiveModalData({
-                ...projectData,
-                googleFormUrl: eventData.forms.external,
-              })}
-              className="w-full text-xs py-2.5 mt-2 flex items-center justify-center gap-1.5"
+              variant="primary"
+              className="w-full py-3.5 px-5 text-xs sm:text-sm tracking-wider whitespace-nowrap h-12 bg-gradient-to-r from-[#ff840c] to-[#ea580c] border-[#ff840c] hover:brightness-110 shadow-lg flex items-center justify-center font-medium"
             >
-              <BookOpen className="w-3.5 h-3.5 text-[#ff840c]" />
-              <span>Competition Rules & Judging Criteria</span>
+              <span>Registration — External Participants</span>
+              <ExternalLink className="w-4 h-4 ml-2 shrink-0" />
             </Button>
-          </div>
-
+          </a>
         </div>
 
-        {/* Bottom Registration Action Bar with 2 Form Placeholders */}
-        <div className="mt-8 pt-6 border-t border-light/10 flex flex-col lg:flex-row items-center justify-between gap-4">
-          <div className="text-center lg:text-left">
-            <h4 className="font-display font-semibold text-foreground text-sm sm:text-base">
-              Ready to Participate?
-            </h4>
-            <p className="text-xs text-secondaryAccent font-light mt-0.5">
-              Select your registration form below to submit your paper or project details.
-            </p>
-          </div>
+        {/* Stay Notice & Guidelines link */}
+        <div className="mt-8 pt-5 border-t border-light/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted font-light">
+          <p className="flex items-center gap-1.5 text-secondaryAccent">
+            <Hotel className="w-3.5 h-3.5 text-accent shrink-0" />
+            <span>On-campus hostel stay is requested directly inside the External form.</span>
+          </p>
 
-          {/* The 2 Form Placeholders */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
-            {/* Form Placeholder 1: Christ University */}
-            <a
-              href={eventData.forms.christ}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto"
-            >
-              <Button
-                variant="primary"
-                className="w-full sm:w-auto py-3 px-5 text-xs tracking-wider whitespace-nowrap h-12 bg-gradient-to-r from-accent to-[#0284c7] border-accent hover:brightness-110 shadow-lg flex items-center justify-center"
-              >
-                <span>Registration — Christ University</span>
-                <ExternalLink className="w-3.5 h-3.5 ml-2 shrink-0" />
-              </Button>
-            </a>
-
-            {/* Form Placeholder 2: External Participants */}
-            <a
-              href={eventData.forms.external}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto"
-            >
-              <Button
-                variant="primary"
-                className="w-full sm:w-auto py-3 px-5 text-xs tracking-wider whitespace-nowrap h-12 bg-gradient-to-r from-[#ff840c] to-[#ea580c] border-[#ff840c] hover:brightness-110 shadow-lg flex items-center justify-center"
-              >
-                <span>Registration — External Participants</span>
-                <ExternalLink className="w-3.5 h-3.5 ml-2 shrink-0" />
-              </Button>
-            </a>
-          </div>
+          <button
+            onClick={() => setActiveModalData({
+              ...expertData,
+              googleFormUrl: eventData.forms.christ,
+            })}
+            className="text-accent hover:underline flex items-center gap-1 font-mono text-xs cursor-pointer"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>View Session Guidelines & Requirements</span>
+          </button>
         </div>
       </div>
 

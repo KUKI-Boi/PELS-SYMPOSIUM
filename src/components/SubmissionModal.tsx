@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Users, Calendar, Award, CheckCircle2, Ticket, Hotel } from 'lucide-react';
+import { X, ExternalLink, User, Calendar, Award, CheckCircle2, Ticket, Hotel } from 'lucide-react';
 import { Button } from './Button';
 import { eventData } from '../data/event';
 
@@ -72,9 +72,9 @@ export default function SubmissionModal({ isOpen, onClose, data }: SubmissionMod
           {/* Quick Info Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-5">
             <div className="flex items-center gap-3 p-3 bg-white/[0.03] border border-light/5 rounded-lg">
-              <Users className="w-5 h-5 text-accent shrink-0" />
+              <User className="w-5 h-5 text-accent shrink-0" />
               <div>
-                <span className="text-[10px] font-mono uppercase text-muted block">Team Limit</span>
+                <span className="text-[10px] font-mono uppercase text-muted block">Participation</span>
                 <span className="text-xs sm:text-sm font-semibold text-foreground">{data.teamSize}</span>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function SubmissionModal({ isOpen, onClose, data }: SubmissionMod
               <Award className="w-5 h-5 text-[#ff840c] shrink-0" />
               <div>
                 <span className="text-[10px] font-mono uppercase text-muted block">Recognition</span>
-                <span className="text-xs sm:text-sm font-semibold text-foreground">Certificates & Awards</span>
+                <span className="text-xs sm:text-sm font-semibold text-foreground">IEEE Certificates</span>
               </div>
             </div>
           </div>

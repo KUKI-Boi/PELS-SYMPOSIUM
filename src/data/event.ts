@@ -104,10 +104,26 @@ export const eventData = {
     ]
   },
   speakers: [
-    { id: 1, role: "Keynote", type: "Expert Speaker", name: "To Be Announced", organization: "", session: "Keynote Address by an Expert", bio: "", image: "" },
-    { id: 2, role: "PLC & HMI", type: "Automation Specialist", name: "To Be Announced", organization: "", session: "Basics & Advance PLC and HMI Programming", bio: "", image: "" },
-    { id: 3, role: "VFD Drives", type: "Drives Engineer", name: "To Be Announced", organization: "", session: "Variable Frequency Drive Workshop", bio: "", image: "" },
-    { id: 4, role: "IT-OT Node-RED", type: "IoT Architect", name: "To Be Announced", organization: "", session: "Hands on in IT-OT Integration using Node-RED", bio: "", image: "" },
+    {
+      id: 1,
+      name: "Dr. Manikandan P",
+      designation: "Faculty Coordinator & Assistant Professor",
+      department: "Department of Electrical and Electronics Engineering",
+      institution: "Christ (Deemed to be University), Kengeri Campus",
+      role: "FEATURED SPEAKER",
+      session: "Industrial Automation Systems & Power Electronics",
+      topics: ["Industrial Automation", "Power Converters & Drives", "Smart Control Systems"],
+    },
+    {
+      id: 2,
+      name: "Dr. Umesh V",
+      designation: "Associate Professor & Automation Specialist",
+      department: "Department of Mechanical and Automobile Engineering",
+      institution: "Christ (Deemed to be University), Kengeri Campus",
+      role: "FEATURED SPEAKER",
+      session: "Robotics, Mechatronics & Industrial IoT Integration",
+      topics: ["Robotics & Mechatronics", "IoT & Smart Manufacturing", "Automation Architecture"],
+    },
   ],
   committee: [
     {
@@ -135,52 +151,28 @@ export const eventData = {
     ]
   },
   showcases: {
-    paperPresentation: {
-      title: "Paper & Project Presentation",
-      subtitle: "Present research papers and engineering innovations on recent trends in industrial electronics and automation.",
-      status: "OPEN",
-      badge: "Submissions Open",
-      teamSize: "1 to 3 Members",
-      tracks: [
-        "Power Electronics & Smart Grid Systems",
-        "Industrial Automation & PLC/SCADA/HMI",
-        "Robotics, Mechatronics & Embedded Systems",
-        "Electric Drives & Renewable Energy Integration"
-      ],
-      guidelines: [
-        "Abstract submission should not exceed 300 words.",
-        "Full papers must adhere to IEEE standard double-column conference format.",
-        "Selected papers will be reviewed by academic and industry panelists.",
-        "Certificate of presentation awarded to all registered authors."
-      ],
-      importantDates: [
-        { label: "Abstract Submission Deadline", date: "October 20, 2026" },
-        { label: "Acceptance Notification", date: "October 28, 2026" },
-        { label: "Final Presentation / Camera Ready", date: "November 5, 2026" },
-      ]
-    },
-    projectCompetition: {
-      title: "Industrial Project Competition",
-      subtitle: "Showcase working engineering prototypes, industrial automation rigs, and hardware solutions to industry experts.",
+    expertHandling: {
+      title: "Expert Handling Sessions",
+      subtitle: "Hands-on industrial automation training and practical lab sessions conducted by expert faculty and researchers.",
       status: "OPEN",
       badge: "Registrations Open",
-      teamSize: "Up to 4 Members",
+      teamSize: "Individual Participation",
       tracks: [
-        "Industrial Automation & Hardware Testbenches",
-        "IoT & Industry 4.0 Smart Factory Solutions",
-        "Electric Vehicle & Power Converter Prototypes",
-        "Sustainable Energy & Embedded Robotics"
+        "PLC Programming (Basics & Advance Logic)",
+        "Human-Machine Interface (HMI) Programming",
+        "Variable Frequency Drive (VFD) Control",
+        "IT-OT Integration using Node-RED"
       ],
       guidelines: [
-        "Teams must demonstrate a functional hardware prototype or software-in-the-loop setup.",
-        "A power supply socket and display desk will be provided at the First Block venue.",
-        "Evaluation criteria include innovation, technical rigor, industrial relevance, and oral presentation.",
-        "Top 3 winning teams receive cash awards, trophies, and merit certificates."
+        "Participation is strictly on an individual basis (no team participation).",
+        "Hands-on equipment, PLC testbenches, and industrial workstations provided at First Block venue.",
+        "Participants are advised to bring their own laptops for configuration and Node-RED integration.",
+        "Official Certificate of Participation endorsed by IEEE PELS Bangalore Chapter upon completion."
       ],
       importantDates: [
-        { label: "Project Registration Closes", date: "October 25, 2026" },
-        { label: "Shortlisting Announcement", date: "October 26, 2026" },
-        { label: "Live Showcase & Judging (Day 2)", date: "Symposium Day 2" },
+        { label: "Registration Opens", date: "Open Now" },
+        { label: "Day 1 Workshop Sessions", date: "25 November 2026" },
+        { label: "Day 2 Workshop Sessions", date: "26 November 2026" },
       ]
     }
   }
