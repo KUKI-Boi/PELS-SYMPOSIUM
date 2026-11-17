@@ -46,10 +46,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between pt-8 border-t border-light/10 text-sm text-muted">
-        <p>&copy; {new Date().getFullYear()} Symposium Organizing Committee.</p>
-        <div className="flex gap-4 mt-4 md:mt-0">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between pt-8 border-t border-light/10 text-sm text-muted gap-4">
+        <div>
+          <p>&copy; {new Date().getFullYear()} Symposium Organizing Committee.</p>
+          <p className="text-xs text-muted/60 font-mono tracking-wider uppercase mt-1">
+            {eventData.motto}
+          </p>
+        </div>
+        <div className="flex gap-4">
           <a href="#" className="hover:text-accent">IEEE PELS</a>
+          <a href="#" className="hover:text-accent">IEEE IES</a>
           <a href="#" className="hover:text-accent">Christ University</a>
         </div>
       </div>

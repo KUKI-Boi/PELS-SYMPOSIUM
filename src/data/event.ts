@@ -1,9 +1,10 @@
 export const eventData = {
   title: "Symposium on Industrial Automation 2026",
-  subtitle: "A two-day technical symposium bringing together students, academia, industry experts and IEEE professionals around modern industrial automation and industrial electronics.",
+  subtitle: "A two-day technical symposium bringing together students, academia, industry experts and IEEE professionals around modern industrial automation and industrial electronics. Automation connects ideas to a smarter tomorrow.",
+  motto: "PEOPLE | TECHNOLOGY | INDUSTRY | A SUSTAINABLE TOMORROW",
   organizer: {
-    unit: "Christ University PELS SBC",
-    chapter: "IEEE PELS Bangalore Chapter",
+    unit: "Christ University PELS & IES SBC",
+    chapter: "IEEE PELS & IEEE IES Bangalore Chapters",
     department: "Department of Electrical and Electronics Engineering, Christ University, Kengeri Campus",
     ouCode: "SBC173411",
   },
@@ -27,7 +28,7 @@ export const eventData = {
     facultyCoordinators: [
       {
         name: "Dr. Vijaya Margaret",
-        role: "Faculty Advisor, PELS Christ University",
+        role: "Faculty Coordinator",
         email: "vijaya.margaret@christuniversity.in",
         phone: "+91 9945869869",
       },
@@ -128,7 +129,7 @@ export const eventData = {
   committee: [
     {
       name: "Dr. Vijaya Margaret",
-      role: "Faculty Advisor, PELS Christ University",
+      role: "Faculty Coordinator",
       department: "Department of Electrical and Electronics Engineering",
       phone: "+91 9945869869",
       image: "",

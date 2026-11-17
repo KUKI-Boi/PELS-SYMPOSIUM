@@ -61,8 +61,8 @@ export default function Hero() {
           <div className="flex items-start gap-4">
             <div className="h-px w-8 bg-accent mt-2.5 shrink-0" />
             <p className="font-mono text-xs sm:text-sm font-semibold tracking-[0.2em] text-accent uppercase leading-relaxed">
-              IEEE PELS BANGALORE CHAPTER • CHRIST UNIVERSITY<br/>
-              PELS SBC
+              IEEE PELS & IEEE IES BANGALORE CHAPTERS • CHRIST UNIVERSITY<br/>
+              PELS & IES SBC
             </p>
           </div>
           
