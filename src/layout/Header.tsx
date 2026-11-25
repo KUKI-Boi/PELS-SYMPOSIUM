@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Program', href: '#program' },
   { label: 'Workshop', href: '#workshop' },
   { label: 'Speakers', href: '#speakers' },
+  { label: 'Feedback', href: '#feedback' },
   { label: 'Venue', href: '#venue' },
 ];
 
@@ -54,8 +55,8 @@ export default function Header() {
               </a>
             ))}
           </div>
-          <Button variant="primary" href="#presentations" className="px-6 py-2.5 text-xs">
-            Register Now
+          <Button variant="primary" href="#feedback" className="px-6 py-2.5 text-xs bg-gradient-to-r from-accent to-[#ff840c] border-accent hover:brightness-110">
+            Submit Feedback
           </Button>
         </nav>
 
@@ -88,8 +89,8 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
-              <Button variant="primary" href="#presentations" className="w-full mt-4">
-                Register Now
+              <Button variant="primary" href="#feedback" className="w-full mt-4 bg-gradient-to-r from-accent to-[#ff840c]">
+                Submit Feedback
               </Button>
             </div>
           </motion.div>

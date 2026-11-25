@@ -17,7 +17,7 @@ export default function Footer() {
         <div>
           <h4 className="font-display uppercase tracking-widest text-sm text-foreground/50 mb-6">Quick Links</h4>
           <ul className="flex flex-col gap-3">
-            {['About', 'Program', 'Workshop', 'Speakers', 'Presentations', 'Venue'].map(link => (
+            {['About', 'Program', 'Workshop', 'Speakers', 'Presentations', 'Feedback', 'Venue'].map(link => (
               <li key={link}>
                 <a href={`#${link.toLowerCase()}`} className="text-muted hover:text-accent transition-colors">
                   {link}

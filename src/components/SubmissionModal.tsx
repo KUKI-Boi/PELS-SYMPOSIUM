@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, User, Calendar, Award, CheckCircle2, Ticket, Hotel } from 'lucide-react';
 import { Button } from './Button';
-import { eventData } from '../data/event';
 
 export interface ShowcaseModalData {
   title: string;
@@ -162,32 +161,19 @@ export default function SubmissionModal({ isOpen, onClose, data }: SubmissionMod
             </Button>
             
             <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
+              <span className="text-xs font-mono text-rose-400 px-2.5 py-1 bg-rose-500/10 rounded border border-rose-500/20">
+                Registrations Closed
+              </span>
               <a
-                href={eventData.forms.christ}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#feedback"
+                onClick={onClose}
                 className="w-full sm:w-auto"
               >
                 <Button
                   variant="primary"
-                  className="w-full sm:w-auto text-xs py-2.5 whitespace-nowrap bg-gradient-to-r from-accent to-[#0ea5e9]"
+                  className="w-full sm:w-auto text-xs py-2.5 whitespace-nowrap bg-gradient-to-r from-accent to-[#ff840c]"
                 >
-                  <span>Christ University Form</span>
-                  <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
-                </Button>
-              </a>
-
-              <a
-                href={eventData.forms.external}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto"
-              >
-                <Button
-                  variant="primary"
-                  className="w-full sm:w-auto text-xs py-2.5 whitespace-nowrap bg-gradient-to-r from-[#ff840c] to-[#ea580c] border-[#ff840c]"
-                >
-                  <span>External Form (Stay)</span>
+                  <span>Go to Feedback Form</span>
                   <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
                 </Button>
               </a>

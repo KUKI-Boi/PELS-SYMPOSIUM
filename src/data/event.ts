@@ -13,6 +13,7 @@ export const eventData = {
   forms: {
     christ: "https://forms.gle/tXmEgLNrp91VfU9E9",
     external: "https://docs.google.com/forms/d/e/1FAIpQLSfRrlSd9YCn-Q4a8qeOZApaRfIZGBWpHgTyM8cjyKVKYdhehQ/viewform?usp=sharing&ouid=117019346005384506173",
+    feedback: "https://forms.gle/feedback-placeholder",
   },
   venue: {
     name: "First Block Auditorium",
@@ -143,7 +144,8 @@ export const eventData = {
     }
   ],
   registration: {
-    status: "OPEN",
+    status: "CLOSED",
+    message: "Registrations are officially closed as maximum attendee capacity has been reached. Thank you for the overwhelming response!",
     categories: [
       { name: "Student", fee: "Free Entry" },
       { name: "Faculty", fee: "Free Entry" },
@@ -155,8 +157,8 @@ export const eventData = {
     expertHandling: {
       title: "Expert Handling Sessions",
       subtitle: "Hands-on industrial automation training and practical lab sessions conducted by expert faculty and researchers.",
-      status: "OPEN",
-      badge: "Registrations Open",
+      status: "CLOSED",
+      badge: "Registrations Closed",
       teamSize: "Individual Participation",
       tracks: [
         "PLC Programming (Basics & Advance Logic)",
@@ -171,7 +173,7 @@ export const eventData = {
         "Official Certificate of Participation endorsed by IEEE PELS Bangalore Chapter upon completion."
       ],
       importantDates: [
-        { label: "Registration Opens", date: "Open Now" },
+        { label: "Registration Status", date: "Closed (Full Capacity)" },
         { label: "Day 1 Workshop Sessions", date: "25 November 2026" },
         { label: "Day 2 Workshop Sessions", date: "26 November 2026" },
       ]

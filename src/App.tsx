@@ -9,6 +9,7 @@ import Program from './sections/Program';
 import Workshop from './sections/Workshop';
 import Speakers from './sections/Speakers';
 import Presentations from './sections/Presentations';
+import Feedback from './sections/Feedback';
 import Venue from './sections/Venue';
 import Contact from './sections/Contact';
 import PelsLoader from './components/PelsLoader';
@@ -34,6 +35,7 @@ function App() {
             <Workshop />
             <Speakers />
             <Presentations />
+            <Feedback />
             <Venue />
             <Contact />
           </main>
