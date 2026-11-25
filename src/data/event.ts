@@ -13,7 +13,7 @@ export const eventData = {
   forms: {
     christ: "https://forms.gle/tXmEgLNrp91VfU9E9",
     external: "https://docs.google.com/forms/d/e/1FAIpQLSfRrlSd9YCn-Q4a8qeOZApaRfIZGBWpHgTyM8cjyKVKYdhehQ/viewform?usp=sharing&ouid=117019346005384506173",
-    feedback: "https://forms.gle/feedback-placeholder",
+    feedback: "https://forms.gle/cmyjq4Q8tgVz64Xe7",
   },
   venue: {
     name: "First Block Auditorium",
